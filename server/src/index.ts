@@ -9,15 +9,15 @@ class Server {
     constructor() {
         this.app = express();
         this.config();
-        this.routes();
-        this.app.use(express.json());
-        this.app.use(express.urlencoded());
+        this.routes();        
     }
 
     config(): void {
         this.app.set('port', process.env.PORT || '3000');
         this.app.use(morgan('dev'));
         this.app.use(cors());
+        this.app.use(express.json());
+        this.app.use(express.urlencoded());
     }
 
     routes(): void {
